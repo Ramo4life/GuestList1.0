@@ -1,18 +1,18 @@
-import java.util.*;
+    import java.util.*;
 
-public class App {
-    static Scanner input = new Scanner(System.in);  // Create a Scanner object
-    static void Listprint(String[][] Guests){
-        for (int i = 0; i < Guests.length; i++) {
-            for (int j = 0; j < 2; j++) {
-                if(Guests[i].length == 0){
-                    continue;
-                }
-                if (j == 0){
-                    System.out.print("Guest "+(i+1)+", "+ "name: " + Guests[i][j]);
-                }else{
-                    System.out.println(" age: " + Guests[i][j]);
-                }
+    public class App {
+        static Scanner input = new Scanner(System.in);  // Create a Scanner object
+        static void Listprint(String[][] Guests){
+            for (int i = 0; i < Guests.length; i++) {
+                for (int j = 0; j < 2; j++) {
+                    if(Guests[i].length == 0){
+                        continue;
+                    }
+                    if (j == 0){
+                        System.out.print("Guest "+(i+1)+", "+ "name: " + Guests[i][j]);
+                    }else{
+                        System.out.println(" age: " + Guests[i][j]);
+                    }
                 
             }
         }
@@ -77,76 +77,76 @@ public class App {
                 return i; //returns the empty spot
             }
     } return -1;
-}
-    static String[][] AddGuest(String[][] Guests,int freeSpot){
-        System.out.print("Please enter the guests name: ");
-            String NewGuestName = input.nextLine() ;
-            System.out.print("Please enter the guests age: ");
-            String NewGuestAge = input.nextLine() ;
-            String[][] copy = new String[Guests.length][2];
-                for (int i = 0, j = 0; i < Guests.length; i++) {
-                    if (i != freeSpot) {
-                        copy[j++] = Guests[i];
-                    }else{
-                        copy[j][0] = NewGuestName;
-                        copy[j][1] = NewGuestAge;
-                        j++;
-                    }
-                }
-                return copy;         
-}
-    static int VaildGuestNum(String[][] Guests){
-        int WhichGuest = -1;
-        boolean VaildGuestNumber = false;
-        while (!VaildGuestNumber) {
-            try {
-                System.out.println("\nPlease enter which guest (Use the Guest number, type '0' to exit)");
-                WhichGuest = Integer.parseInt(input.nextLine())-1; ;
-                if((WhichGuest == -1)){
-                    return -1;
-                }else if((WhichGuest >= 0 || WhichGuest <= Guests.length) && (Guests[WhichGuest].length >  0)){
-                    VaildGuestNumber = true;
-                }
-                else{
-                    System.out.println("Please Enter a Vaild Number");
-                }
-            } catch (Exception e) {
-                System.out.println("Please Enter a Vaild Number");
-            }
-        }
-        return WhichGuest;
     }
-    static int VaildGuestNumC(String[][] Guests){
-        int WhichGuest = -1;
-        boolean VaildGuestNumber = false;
-        while (!VaildGuestNumber) {
-            try {
-                System.out.println("\nPlease enter which guest (Use the Guest number, type '0' to exit)");
-                WhichGuest = Integer.parseInt(input.nextLine())-1; ;
-                if((WhichGuest == -1)){
-                    return -1;
-                }else if(WhichGuest >= 0 || WhichGuest <= Guests.length){
-                    VaildGuestNumber = true;
-                }
-                else{
-                    System.out.println("Please Enter a Vaild Number");
-                }
-            } catch (Exception e) {
-                System.out.println("Please Enter a Vaild Number");
-            }
-        }
-        return WhichGuest;
-    }
-    static boolean CheckForRemove(String[][] Guests){
-            for (int i = 0; i < Guests.length; i++) {
-                if(Guests[i].length != 0){
-                    return true;
+        static String[][] AddGuest(String[][] Guests,int freeSpot){
+            System.out.print("Please enter the guests name: ");
+                String NewGuestName = input.nextLine() ;
+                System.out.print("Please enter the guests age: ");
+                String NewGuestAge = input.nextLine() ;
+                String[][] copy = new String[Guests.length][2];
+                    for (int i = 0, j = 0; i < Guests.length; i++) {
+                        if (i != freeSpot) {
+                            copy[j++] = Guests[i];
+                        }else{
+                            copy[j][0] = NewGuestName;
+                            copy[j][1] = NewGuestAge;
+                            j++;
                         }
-    }return false;
-}
-    static String[][] RemoveGuest(String[][] Guests){
-        Listprint(Guests);
-        int GuestNum = VaildGuestNum(Guests);
+                    }
+                    return copy;         
+    }
+        static int VaildGuestNum(String[][] Guests){
+            int WhichGuest = -1;
+            boolean VaildGuestNumber = false;
+            while (!VaildGuestNumber) {
+                try {
+                    System.out.println("\nPlease enter which guest (Use the Guest number, type '0' to exit)");
+                    WhichGuest = Integer.parseInt(input.nextLine())-1; ;
+                    if((WhichGuest == -1)){
+                        return -1;
+                    }else if((WhichGuest >= 0 || WhichGuest <= Guests.length) && (Guests[WhichGuest].length >  0)){
+                        VaildGuestNumber = true;
+                    }
+                    else{
+                        System.out.println("Please Enter a Vaild Number");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Please Enter a Vaild Number");
+                }
+            }
+            return WhichGuest;
+        }
+        static int VaildGuestNumC(String[][] Guests){
+            int WhichGuest = -1;
+            boolean VaildGuestNumber = false;
+            while (!VaildGuestNumber) {
+                try {
+                    System.out.println("\nPlease enter which guest (Use the Guest number, type '0' to exit)");
+                    WhichGuest = Integer.parseInt(input.nextLine())-1; ;
+                    if((WhichGuest == -1)){
+                        return -1;
+                    }else if(WhichGuest >= 0 || WhichGuest <= Guests.length){
+                        VaildGuestNumber = true;
+                    }
+                    else{
+                        System.out.println("Please Enter a Vaild Number");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Please Enter a Vaild Number");
+                }
+            }
+            return WhichGuest;
+        }
+        static boolean CheckForRemove(String[][] Guests){
+                for (int i = 0; i < Guests.length; i++) {
+                    if(Guests[i].length != 0){
+                        return true;
+                            }
+        }return false;
+    }
+        static String[][] RemoveGuest(String[][] Guests){
+            Listprint(Guests);
+            int GuestNum = VaildGuestNum(Guests);
 
         String[][] copy = new String[Guests.length][2];
         String[][] Empty = {{}};
