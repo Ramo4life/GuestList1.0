@@ -2,6 +2,7 @@
 
     public class App {
         static Scanner input = new Scanner(System.in);  // Create a Scanner object
+        
         static void Listprint(String[][] Guests){
             for (int i = 0; i < Guests.length; i++) {
                 for (int j = 0; j < 2; j++) {
@@ -13,10 +14,13 @@
                     }else{
                         System.out.println(" age: " + Guests[i][j]);
                     }
-                
             }
         }
     }
+    
+    
+    
+    
     static void Stats(String[][] Guests){
         int NumberOfGuests = Guests.length;
         int NumberOfAdults = 0;
@@ -71,6 +75,10 @@
     System.out.println("Oldest person: "+Arrays.toString(OldestPerson));
     System.out.println("Youngest person: "+Arrays.toString(YoungestPerson));
     }
+    
+    
+    
+    
     static int CheckForAdd(String[][] Guests){
         for (int i = 0; i < Guests.length; i++) {
             if(Guests[i].length == 0){
@@ -78,6 +86,9 @@
             }
     } return -1;
     }
+    
+    
+    
         static String[][] AddGuest(String[][] Guests,int freeSpot){
             System.out.print("Please enter the guests name: ");
                 String NewGuestName = input.nextLine() ;
@@ -95,6 +106,9 @@
                     }
                     return copy;         
     }
+    
+    
+    
         static int VaildGuestNum(String[][] Guests){
             int WhichGuest = -1;
             boolean VaildGuestNumber = false;
@@ -116,6 +130,10 @@
             }
             return WhichGuest;
         }
+        
+        
+        
+        
         static int VaildGuestNumC(String[][] Guests){
             int WhichGuest = -1;
             boolean VaildGuestNumber = false;
@@ -137,6 +155,10 @@
             }
             return WhichGuest;
         }
+        
+        
+        
+        
         static boolean CheckForRemove(String[][] Guests){
                 for (int i = 0; i < Guests.length; i++) {
                     if(Guests[i].length != 0){
@@ -144,6 +166,9 @@
                             }
         }return false;
     }
+    
+    
+    
         static String[][] RemoveGuest(String[][] Guests){
             Listprint(Guests);
             int GuestNum = VaildGuestNum(Guests);
@@ -157,6 +182,10 @@
         }
         return copy;
     }
+    
+    
+    
+    
     static String[][] ChangeGuestName(String[][] Guests){
         
         int GuestNum = VaildGuestNum(Guests);
@@ -183,6 +212,10 @@
         }
         return Guests;
     }
+    
+    
+    
+    
     static String[][] ChangeGuestAge(String[][] Guests){
         int GuestNum = VaildGuestNum(Guests);
         if (GuestNum == -1){
@@ -207,6 +240,11 @@
         }
         return Guests;
     }
+    
+    
+    
+    
+    
     static String[][] ChangePlace(String[][] Guests){
         int GuestNum1 = VaildGuestNumC(Guests);
         int GuestNum2 = VaildGuestNumC(Guests);
@@ -218,6 +256,9 @@
         Guests[GuestNum1] = GuestNum2Holder;
         return Guests;
     }
+    
+    
+    
     public static void main(String[] args) throws Exception {
     boolean active = true;
     String[][] Guests = {{"john","1"},{"Bwar","30"}, {"jack","19"},{} };
